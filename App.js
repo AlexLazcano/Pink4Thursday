@@ -4,21 +4,18 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import SplashScreen from "./Components/SlashScreen/SplashScreen";
+import SplashScreen from "./Components/Auth/SlashScreen/SplashScreen";
+import Landing from "./Components/Auth/Landing/Landing";
 
 export default function App() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">
-        <Stack.Screen name="Landing" component={SplashScreen} />
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Landing" component={Landing} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <View style={styles.container}>
-    //   <SplashScreen />
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
   );
 }
 

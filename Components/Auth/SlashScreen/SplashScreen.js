@@ -7,7 +7,10 @@ import styles from "./styles";
 const SplashScreen = (props) => {
   return (
     <View style={styles.splashBG}>
-      <Image source={require("../../assets/LogoPT.png")} style={styles.logo} />
+      <Image
+        source={require("../../../assets/LogoPT.png")}
+        style={styles.logo}
+      />
     </View>
   );
 };
