@@ -8,7 +8,7 @@ const Landing = ({ navigation }) => {
     <View style={styles.center}>
       <Text>Welcome</Text>
       <Button title="Login" onPress={() => navigation.navigate("Splash")} />
-      <Button title="Sign Up"> </Button>
+      <Button title="Sign Up" onPress={() => navigation.navigate("Register")} />
     </View>
   );
 };
