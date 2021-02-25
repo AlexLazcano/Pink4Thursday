@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-native";
-import { CenteredView, ColoredText } from './styles';
+import { CenteredView, ColoredText } from "./styles";
 
 const Landing = ({ navigation }) => {
   return (
