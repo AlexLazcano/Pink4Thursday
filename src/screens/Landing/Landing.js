@@ -7,7 +7,7 @@ const Landing = ({ navigation }) => {
     <CenteredView>
       <ColoredText>PinkThursday</ColoredText>
       <Button title="Login" onPress={() => navigation.navigate("Splash")} />
-      <Button title="Sign Up"> </Button>
+      <Button title="Sign Up" onPress={() => navigation.navigate("Register")} />
     </CenteredView>
   );
 };
