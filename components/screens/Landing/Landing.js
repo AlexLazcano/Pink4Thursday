@@ -1,15 +1,14 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
-
-import styles from "./styles";
+import { Button } from "react-native";
+import { CenteredView, ColoredText } from './styles';
 
 const Landing = ({ navigation }) => {
   return (
-    <View style={styles.center}>
-      <Text>Welcome</Text>
+    <CenteredView>
+      <ColoredText>PinkThursday</ColoredText>
       <Button title="Login" onPress={() => navigation.navigate("Splash")} />
       <Button title="Sign Up"> </Button>
-    </View>
+    </CenteredView>
   );
 };
 
