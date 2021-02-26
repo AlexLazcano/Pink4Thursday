@@ -1,11 +1,14 @@
 import React from "react";
-import { Button } from "react-native";
+import { Button, NativeModules } from "react-native";
 import { CenteredView, ColoredText } from "./styles";
+import config from "../../../config"
+
+const name = config.API_KEY
 
 const Landing = ({ navigation }) => {
   return (
     <CenteredView>
-      <ColoredText>PinkThursday</ColoredText>
+      <ColoredText>{name}</ColoredText>
       <Button title="Login" onPress={() => navigation.navigate("Splash")} />
       <Button title="Sign Up" onPress={() => navigation.navigate("Register")} />
     </CenteredView>
