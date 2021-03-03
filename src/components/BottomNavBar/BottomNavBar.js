@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 
 import * as Styles from './styles';
-
-import Landing from "../../screens/Landing/Landing";
 
 const CommunityRoute = () => {
     return (
@@ -51,7 +49,7 @@ const BottomNavBar = () => {
             inactiveColor={ Styles.InactiveIconColor }
             barStyle={{ backgroundColor:  Styles.BackgroundColor }}
         />
-    );
+    )
 }
 
 export default BottomNavBar;
