@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, NativeModules } from "react-native";
+import { Button } from "react-native";
 import { CenteredView, ColoredText } from "./styles";
-import config from "../../../config"
+import config from "../../../config";
 
-const name = config.API_KEY
+const name = config.API_KEY;
 
 const Landing = ({ navigation }) => {
   return (
