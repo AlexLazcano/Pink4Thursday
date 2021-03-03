@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-native";
 import { CenteredView, ColoredText } from "./styles";
+
 import config from "../../../config";
 
 const name = config.API_KEY;
