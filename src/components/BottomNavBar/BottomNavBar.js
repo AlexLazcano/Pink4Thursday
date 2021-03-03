@@ -1,13 +1,32 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
 
-import { ActiveIconColor, InactiveIconColor, BackgroundColor } from './styles';
+import * as Styles from './styles';
 
 import Landing from "../../screens/Landing/Landing";
 
-const CommunityRoute = () => <Landing />
-const ProfileRoute = () => <Text>Profile</Text>
-const SettingsRoute = () => <Text>Settings</Text>
+const CommunityRoute = () => {
+    return (
+        <Styles.CenteredView>
+            <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
+        </Styles.CenteredView>
+    );
+}
+
+const ProfileRoute = () => {
+    return (
+        <Styles.CenteredView>
+            <Styles.TempPageText>ProfileRoute</Styles.TempPageText>
+        </Styles.CenteredView>
+    );
+}
+const SettingsRoute = () => {
+    return (
+        <Styles.CenteredView>
+            <Styles.TempPageText>SettingsRoute</Styles.TempPageText>
+        </Styles.CenteredView>
+    );
+}
 
 const BottomNavBar = () => {
     const [index, setIndex] = React.useState(0);
@@ -28,9 +47,9 @@ const BottomNavBar = () => {
             navigationState={{ index, routes }}
             onIndexChange={ setIndex }
             renderScene={ renderScene }
-            activeColor={ ActiveIconColor }
-            inactiveColor={ InactiveIconColor }
-            barStyle={{ backgroundColor:  BackgroundColor }}
+            activeColor={ Styles.ActiveIconColor }
+            inactiveColor={ Styles.InactiveIconColor }
+            barStyle={{ backgroundColor:  Styles.BackgroundColor }}
         />
     );
 }
