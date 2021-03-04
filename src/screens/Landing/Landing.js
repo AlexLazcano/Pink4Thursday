@@ -3,7 +3,7 @@ import { Button, NativeModules } from "react-native";
 import { CenteredView, ColoredText } from "./styles";
 import config from "../../../config"
 
-const name = config.API_KEY
+const name = config.APPID
 
 const Landing = ({ navigation }) => {
   return (
