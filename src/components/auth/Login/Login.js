@@ -11,7 +11,7 @@ class Register extends Component {
     this.state = {
       email: '',
       password: '',
-      name: '',
+     
     }
     this.onSignUp = this.onSignUp.bind(this);
   }
@@ -32,12 +32,7 @@ class Register extends Component {
   render() {
     return (
       <View style={styles.center}>
-        <Text>Register</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="name"
-          onChangeText={(name) => this.setState({ name: name })}
-        />
+        <Text>Login</Text>
         <TextInput
           style={styles.input}
           placeholder="email"

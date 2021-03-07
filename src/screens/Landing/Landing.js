@@ -1,17 +1,19 @@
 import React from "react";
-import { Button, NativeModules } from "react-native";
-import { CenteredView, ColoredText } from "./styles";
+import { Button, Image, View, Text } from "react-native";
+import styles from "./styles";
+
 import config from "../../../config"
 
-const name = config.APPID
+const name = config.PROJECTID
 
 const Landing = ({ navigation }) => {
   return (
-    <CenteredView>
-      <ColoredText>{name}</ColoredText>
-      <Button title="Login" onPress={() => navigation.navigate("Splash")} />
+    <View style={styles.center}>
+      <Text>{name}</Text>
+      <Image style={{width:"50%", height:"20%", resizeMode:"contain"}} source={require("../../../assets/LogoPT.png")}></Image>
+      <Button title="Login" onPress={() => navigation.navigate("Login")} />
       <Button title="Sign Up" onPress={() => navigation.navigate("Register")} />
-    </CenteredView>
+    </View>
   );
 };
 
