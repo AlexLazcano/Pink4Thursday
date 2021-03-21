@@ -1,12 +1,11 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 
-import Routes from "./src/routes/Routes";
+import AuthRouter from "./src/app/Router";
 
-function App() {
+const App = () => {
   return (
-    <Routes />
-  );
+    <AuthRouter />
+  )
 }
 
 export default App;
