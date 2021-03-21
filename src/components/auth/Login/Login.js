@@ -14,6 +14,7 @@ class Register extends Component {
      
     }
     this.onLogin = this.onLogin.bind(this);
+    
   }
 
 
@@ -23,6 +24,19 @@ class Register extends Component {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result) => {
       console.log(result)
+      
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+
+  onLogout() {
+
+    firebase.auth().signOut()
+    .then((result) => {
+      console.log(result)
+      
     })
     .catch((error)=>{
       console.log(error)
@@ -45,6 +59,7 @@ class Register extends Component {
           secureTextEntry={false}
         />
         <Button title="Sign In" onPress={() => this.onLogin()} />
+        <Button title="Log Out" onPress={this.onLogout()}/>
       </View>
     );
   }

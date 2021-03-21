@@ -18,16 +18,20 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig) 
 }
 
+
+
+
 const AuthRouter = () => {
 
-  /*
-    Display the proper navigation stack based on user authentication (something like below):
-        return user ? (
-          <LoggedInNavigation />
-        ) : (
-          <LoggedOutNavigation />
-        ) 
-  */
+  firebase.auth().onAuthStateChanged(function(user){
+    if (user){
+      console.log("user is logged in")
+    }else{
+      console.log("user not signed in")
+    }
+  
+  })
+  
   return (
     <LoggedOutNavigation />
   )
