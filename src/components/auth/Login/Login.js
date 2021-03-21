@@ -23,7 +23,7 @@ class Register extends Component {
   
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result) => {
-      console.log(result)
+      // console.log(result)
       
     })
     .catch((error)=>{
@@ -32,10 +32,11 @@ class Register extends Component {
   }
 
   onLogout() {
+    console.log("logging out")
 
     firebase.auth().signOut()
     .then((result) => {
-      console.log(result)
+      // console.log(result)
       
     })
     .catch((error)=>{
@@ -59,7 +60,7 @@ class Register extends Component {
           secureTextEntry={false}
         />
         <Button title="Sign In" onPress={() => this.onLogin()} />
-        <Button title="Log Out" onPress={this.onLogout()}/>
+        <Button title="Log Out" onPress={() => this.onLogout()}/>
       </View>
     );
   }

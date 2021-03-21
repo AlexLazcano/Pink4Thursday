@@ -6,6 +6,8 @@ import BottomNavBar from '../components/BottomNavBar/BottomNavBar'
 
 const Stack = createStackNavigator();
 
+
+
 export default LoggedInNavigation = () => {
     return (
         <NavigationContainer>

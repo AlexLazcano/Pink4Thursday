@@ -1,12 +1,22 @@
 import * as React from 'react';
+import { Button , Text } from 'react-native';
 import { BottomNavigation } from 'react-native-paper';
+import firebase from 'firebase'
 
 import * as Styles from './styles';
+
+onLogout = () => {
+    firebase.auth().signOut()
+
+}
+
 
 const CommunityRoute = () => {
     return (
         <Styles.CenteredView>
             <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
+            
+            <Button title="Logout" onPress={onLogout}/>
         </Styles.CenteredView>
     );
 }
