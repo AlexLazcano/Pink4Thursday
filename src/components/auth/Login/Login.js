@@ -13,14 +13,14 @@ class Register extends Component {
       password: '',
      
     }
-    this.onSignUp = this.onSignUp.bind(this);
+    this.onLogin = this.onLogin.bind(this);
   }
 
 
-  onSignUp() {
+  onLogin() {
     const {email, password, name} = this.state;
   
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result) => {
       console.log(result)
     })
@@ -44,7 +44,7 @@ class Register extends Component {
           onChangeText={(password) => this.setState({ password: password })}
           secureTextEntry={false}
         />
-        <Button title="Sign Up" onPress={() => this.onSignUp()} />
+        <Button title="Sign In" onPress={() => this.onLogin()} />
       </View>
     );
   }
