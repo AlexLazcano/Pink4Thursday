@@ -1,6 +1,7 @@
 # Package
 node_modules/
 .expo/
+dist/
 web-build/
 
 # IDE/OS
