@@ -5,7 +5,7 @@ import {
     BaseEntity,
     CreateDateColumn,
     UpdateDateColumn
-} from 'typeorm';
+} from "typeorm";
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -28,5 +28,5 @@ export class User extends BaseEntity {
     createdDate: Date;
 
     @UpdateDateColumn()
-    updatedAt: Date;
+    lastUpdated: Date;
 }
