@@ -1,4 +1,4 @@
-![PinkThursday](app/assets/LogoPT.png)
+<img height="238px" width="451px" src="app/assets/LogoPT.png" />
 
 # Pink4Thursday
 
