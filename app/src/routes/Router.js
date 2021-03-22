@@ -1,6 +1,6 @@
 import * as React from 'react';
 import firebase from 'firebase';
-import {useState, useEffect, View, Text}from 'react';
+import { useState, useEffect } from 'react';
 
 import LoggedOutNavigation from '../navigation/LoggedOutNavigation';
 import LoggedInNavigation from '../navigation/LoggedInNavigation';
@@ -20,12 +20,7 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig) 
 }
 
-
-
-
-
 function AuthRouter(){
-
   const [initializing, setInitializing] = useState(true)
   const [user, setUser] = useState()
 
@@ -41,6 +36,7 @@ function AuthRouter(){
   }, []);
 
   if (initializing) return null;
+
   if (!user) {
     console.log("user is not logged in")
     return (
@@ -52,10 +48,6 @@ function AuthRouter(){
       <LoggedInNavigation/>
     );
   }
-
-  
-
-  
 }
 
 export const AuthContext = React.createContext(null);
