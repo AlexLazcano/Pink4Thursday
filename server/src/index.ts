@@ -1,21 +1,21 @@
 import { ApolloServer } from "apollo-server-express";
+import "dotenv-safe/config";
 import express from "express";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
+import { __PROD__ } from "./constants";
 import { User } from "./entities/User";
 import { TestResolver } from "./resolvers/test";
 import { UserResolver } from "./resolvers/user";
 
 const main = async () => {
     // TODO: abstract database credentials and url information to env files
-    const orm = await createConnection({
+    const postgres = await createConnection({
         type: "postgres",
-        database: 'pinkthursday',
-        username: 'postgres',
-        password: 'postgres',
+        url: process.env.DATABASE_URL,
         logging: true,
-        synchronize: true,
+        synchronize: !__PROD__,
         entities: [User]
     });
 
@@ -30,7 +30,7 @@ const main = async () => {
 
     apolloServer.applyMiddleware({ app });
 
-    app.listen(4000, () => {
+    app.listen(parseInt(process.env.PORT), () => {
         console.log("Apollo server started on localhost:4000");
     });
 };

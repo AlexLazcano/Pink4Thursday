@@ -12,9 +12,12 @@ web-build/
 npm-debug.*
 npm-debug.log*
 
+# Environment
+*.env
+*.env.example
+
 # Misc.
 *.log
-*.env
 *.jks
 *.p8
 *.p12
