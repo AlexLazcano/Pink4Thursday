@@ -7,7 +7,6 @@ import * as Styles from './styles';
 
 onLogout = () => {
     firebase.auth().signOut()
-
 }
 
 
@@ -39,9 +38,9 @@ const SettingsRoute = () => {
 const BottomNavBar = () => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'community', title: 'Community', icon: '#', color: '#E43090' },
-        { key: 'profile', title: 'Profile', icon: '#' },
-        { key: 'settings', title: 'Settings', icon: '#' },
+        { key: 'community', title: 'Community', color: '#E43090' },
+        { key: 'profile', title: 'Profile' },
+        { key: 'settings', title: 'Settings' },
     ]);
 
     const renderScene = BottomNavigation.SceneMap({
