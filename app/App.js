@@ -1,6 +1,6 @@
 import React from "react";
 
-import AuthRouter from "./src/app/Router";
+import AuthRouter from "./src/routes/Router";
 
 const App = () => {
   return (

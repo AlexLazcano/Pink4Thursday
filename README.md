@@ -12,7 +12,7 @@ A fullstack application project for [PinkThursday](https://www.facebook.com/Pink
 
 ### Apollo Server
 
-#### Pre-requisites
+#### Prerequisites
 Ensure that the postgresql cli is installed. The latest release can be downloaded from [postgresql.org](https://www.postgresql.org/).
 
 Within the development environment, create a table named _pinkthursday_ in postgres on the default user.
