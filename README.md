@@ -12,14 +12,10 @@ A fullstack application project for [PinkThursday](https://www.facebook.com/Pink
 
 ### Apollo Server
 
-#### Pre-requisites for Development
-Retrieve packages from server `package.json`, this will create a new `node_modules` directory
-```
-npm install
-```
+#### Pre-requisites
 Ensure that the postgresql cli is installed. The latest release can be downloaded from [postgresql.org](https://www.postgresql.org/).
 
-For current development, create a table named _pinkthursday_ in postgres on the default user.
+Within the development environment, create a table named _pinkthursday_ in postgres on the default user.
 
 #### Build/Run Apollo Server
 1. cd into the `/server` directory
