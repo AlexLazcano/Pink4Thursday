@@ -1,22 +1,21 @@
-import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { __PROD__ } from "./constants";
-import { User } from "./entities/User";
-
+import { ApolloServer } from "apollo-server-express";
 import express from "express";
-import { ApolloServer } from "apollo-server-express"
+import "reflect-metadata";
 import { buildSchema } from "type-graphql";
-import { TestResolver } from "./resolvers/Test";
+import { createConnection } from "typeorm";
+import { User } from "./entities/User";
+import { TestResolver } from "./resolvers/test";
+import { UserResolver } from "./resolvers/user";
 
 const main = async () => {
     // TODO: abstract database credentials and url information to env files
-    const conn = await createConnection({
+    const orm = await createConnection({
         type: "postgres",
         database: 'pinkthursday',
         username: 'postgres',
         password: 'postgres',
         logging: true,
-        synchronize: !__PROD__,
+        synchronize: true,
         entities: [User]
     });
 
@@ -24,9 +23,9 @@ const main = async () => {
 
     const apolloServer = new ApolloServer({
         schema: await buildSchema({
-            resolvers: [TestResolver],
+            resolvers: [TestResolver, UserResolver],
             validate: false
-        })
+        }),
     });
 
     apolloServer.applyMiddleware({ app });
@@ -36,4 +35,6 @@ const main = async () => {
     });
 };
 
-main();
+main().catch((err) => {
+    console.log(err);
+});
