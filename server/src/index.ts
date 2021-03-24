@@ -10,7 +10,6 @@ import { TestResolver } from "./resolvers/test";
 import { UserResolver } from "./resolvers/user";
 
 const main = async () => {
-    // TODO: abstract database credentials and url information to env files
     const postgres = await createConnection({
         type: "postgres",
         url: process.env.DATABASE_URL,
