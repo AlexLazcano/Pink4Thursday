@@ -15,7 +15,22 @@ A fullstack application project for [PinkThursday](https://www.facebook.com/Pink
 #### Prerequisites
 Ensure that the postgresql cli is installed. The latest release can be downloaded from [postgresql.org](https://www.postgresql.org/).
 
-Within the development environment, create a table named _pinkthursday_ in postgres on the default user.
+#### Local Environment Config
+1. Create a `.env` and a `.env.example` in your development environment.
+2. In the `.env` file add the following variables
+```
+DATABASE_URL=   # database url goes here in the form postgresql://PSQL_USER:PSQL_PASSWORD@localhost:5432/PSQL_DATABASE
+PORT=           # port to run the express server
+```
+3. In the `.env.example` file, add the same variables but **without** their values
+```
+DATABASE_URL=
+PORT=
+```
+4. Run to build TypeScript types for your variables
+```
+npm genv
+```
 
 #### Build/Run Apollo Server
 1. cd into the `/server` directory
