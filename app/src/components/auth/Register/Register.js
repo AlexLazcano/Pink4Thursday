@@ -37,22 +37,22 @@ class Register extends Component {
         <Text>Register</Text>
         <TextInput
           style={styles.input}
-          placeholder="name"
+          placeholder="Name"
           onChangeText={(name) => this.setState({ name: name })}
         />
         <TextInput
           style={styles.input}
-          placeholder="email"
+          placeholder="Email"
           onChangeText={(email) => this.setState({ email: email })}
         />
         <TextInput
           style={styles.input}
-          placeholder="password"
+          placeholder="Password"
           onChangeText={(password) => this.setState({ password: password })}
           secureTextEntry={false}
         />
-        <LoginButton title="Sign Up" onPress={() => this.onSignUp()} />
-        <LoginButton title="Back" onPress={() => navigation.goBack()} />
+        <LoginButton title="Sign Up" onPress={() => this.onSignUp()} buttonW= {150}/>
+        <LoginButton title="Back" onPress={() => navigation.goBack()} buttonW={125} />
       </View>
     );
   }
