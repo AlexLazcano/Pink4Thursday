@@ -3,7 +3,8 @@ import { View, Button, TextInput, Text } from "react-native";
 import firebase from 'firebase'
 
 
-import styles from "./styles";
+import styles from "../styles";
+import LoginButton from "../../LoginButton/LoginButton";
 
 class Register extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Register extends Component {
           onChangeText={(password) => this.setState({ password: password })}
           secureTextEntry={false}
         />
-        <Button title="Sign Up" onPress={() => this.onSignUp()} />
+        <LoginButton title="Sign Up" onPress={() => this.onSignUp()} />
       </View>
     );
   }

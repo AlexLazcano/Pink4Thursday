@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { View, Button, TextInput, Text } from "react-native";
 import firebase from 'firebase'
+import LoginButton from "../../LoginButton/LoginButton";
 
 
-import styles from "./styles";
+import styles from "../styles";
 
 class Register extends Component {
   constructor(props) {
@@ -50,17 +51,18 @@ class Register extends Component {
         <Text>Login</Text>
         <TextInput
           style={styles.input}
-          placeholder="email"
+          placeholder="Email"
           onChangeText={(email) => this.setState({ email: email })}
         />
         <TextInput
           style={styles.input}
-          placeholder="password"
+          placeholder="Password"
           onChangeText={(password) => this.setState({ password: password })}
           secureTextEntry={false}
         />
-        <Button title="Sign In" onPress={() => this.onLogin()} />
-        <Button title="Log Out" onPress={() => this.onLogout()}/>
+        <LoginButton title="Sign In" onPress={() => this.onLogin()}  />
+        
+        
       </View>
     );
   }
