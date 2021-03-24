@@ -1,51 +1,52 @@
 import React, { Component } from "react";
 import { View, Button, TextInput, Text } from "react-native";
-import firebase from 'firebase'
-import LoginButton from "../../LoginButton/LoginButton";
-
+import firebase from "firebase";
+import { useNavigation } from "@react-navigation/core";
 
 import styles from "../styles";
+import LoginButton from "../../LoginButton/LoginButton";
 
 class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
-     
-    }
+      email: "",
+      password: "",
+    };
     this.onLogin = this.onLogin.bind(this);
-    
   }
 
-
   onLogin() {
-    const {email, password, name} = this.state;
-  
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((result) => {
-      // console.log(result)
-      
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
+    const { email, password, name } = this.state;
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        // console.log(result)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   onLogout() {
-    console.log("logging out")
+    console.log("logging out");
 
-    firebase.auth().signOut()
-    .then((result) => {
-      // console.log(result)
-      
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
+    firebase
+      .auth()
+      .signOut()
+      .then((result) => {
+        // console.log(result)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
+
+    const {navigation} = this.props;
     return (
       <View style={styles.center}>
         <Text>Login</Text>
@@ -60,9 +61,8 @@ class Register extends Component {
           onChangeText={(password) => this.setState({ password: password })}
           secureTextEntry={false}
         />
-        <LoginButton title="Sign In" onPress={() => this.onLogin()}  />
-        
-        
+        <LoginButton title="Sign In" onPress={() => this.onLogin()} />
+        <LoginButton title="Back" onPress={() => navigation.goBack()} />
       </View>
     );
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Image } from "react-native";
 
+
 import { CenteredView } from "./styles";
 
 import config from "../../../config"

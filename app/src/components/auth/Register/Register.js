@@ -31,6 +31,7 @@ class Register extends Component {
   }
 
   render() {
+    const {navigation } = this.props
     return (
       <View style={styles.center}>
         <Text>Register</Text>
@@ -51,6 +52,7 @@ class Register extends Component {
           secureTextEntry={false}
         />
         <LoginButton title="Sign Up" onPress={() => this.onSignUp()} />
+        <LoginButton title="Back" onPress={() => navigation.goBack()} />
       </View>
     );
   }
