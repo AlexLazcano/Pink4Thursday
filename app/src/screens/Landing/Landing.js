@@ -1,11 +1,6 @@
 import React from "react";
 import { Button, Image } from "react-native";
-
 import { CenteredView } from "./styles";
-
-import config from "../../../config"
-
-const name = config.PROJECTID
 
 /*
  *  TODO: Remove "BottomNavBar" from login onPress
@@ -20,6 +15,7 @@ const Landing = ({ navigation }) => {
       <Button title="Login" onPress={() => navigation.navigate("Login")} />
       <Button title="Sign Up" onPress={() => navigation.navigate("Register")} />
       <Button title="Signed In View" onPress={() => navigation.navigate("BottomNavBar")} />
+      <Button title="GraphQL Test" onPress={ () => navigation.navigate("GraphQLTest") } />
     </CenteredView>
   );
 };

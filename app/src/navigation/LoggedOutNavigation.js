@@ -6,6 +6,7 @@ import Landing from '../screens/Landing/Landing';
 import Login from '../components/auth/Login/Login';
 import Register from '../components/auth/Register/Register';
 import BottomNavBar from '../components/BottomNavBar/BottomNavBar';
+import GraphQLTest from '../components/GraphQLTest/GraphQLTest';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export default LoggedOutNavigation = () => {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Register" component={Register} />
                 <Stack.Screen name="BottomNavBar" component={BottomNavBar} />
+                <Stack.Screen name="GraphQLTest" component={GraphQLTest} />
             </Stack.Navigator>
         </NavigationContainer>
     )
