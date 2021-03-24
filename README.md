@@ -16,7 +16,7 @@ A fullstack application project for [PinkThursday](https://www.facebook.com/Pink
 Ensure that the postgresql cli is installed. The latest release can be downloaded from [postgresql.org](https://www.postgresql.org/).
 
 #### Local Environment Config
-1. Create a `.env` and a `.env.example` in your development environment.
+1. Create a `.env` and a `.env.example` file in your development environment.
 2. In the `.env` file add the following variables
 ```
 DATABASE_URL=   # database url goes here in the form postgresql://PSQL_USER:PSQL_PASSWORD@localhost:5432/PSQL_DATABASE
@@ -27,7 +27,7 @@ PORT=           # port to run the express server
 DATABASE_URL=
 PORT=
 ```
-4. Run to build TypeScript types for your variables
+4. If any variable names were modified - or there isn't a `env.d.ts` file present in `/src`, run the following command to build TypeScript types for your variables
 ```
 npm genv
 ```
@@ -42,4 +42,4 @@ npm run watch
 ```
 npm run dev
 ```
-4. In a browser, go to `localhost:4000/graphql`
+4. In a browser, go to `localhost:4000/graphql` (replace 4000 with your specified port number)
