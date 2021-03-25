@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#E43090",
     borderRadius: 30,
-    // width: 150,
+    
     height: 40,
     marginTop: 20,
 
     shadowColor: "black",
     shadowRadius: 4,
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.2,
     shadowOffset: {
       height: 8,
     },

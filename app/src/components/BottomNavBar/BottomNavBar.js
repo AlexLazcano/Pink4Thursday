@@ -4,6 +4,7 @@ import { BottomNavigation } from 'react-native-paper';
 import firebase from 'firebase'
 
 import * as Styles from './styles';
+import RecentActivity from '../RecentActivity/RecentActivity';
 
 onLogout = () => {
     firebase.auth().signOut()
@@ -16,6 +17,7 @@ const CommunityRoute = () => {
             <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
             
             <Button title="Logout" onPress={onLogout}/>
+            <RecentActivity User="Alex" Reaction="Respect"></RecentActivity>
         </Styles.CenteredView>
     );
 }
