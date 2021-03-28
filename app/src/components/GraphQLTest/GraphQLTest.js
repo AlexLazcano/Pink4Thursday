@@ -1,22 +1,9 @@
+import { useQuery } from "@apollo/client";
 import React from "react";
 import { FlatList } from "react-native";
-import { gql, useQuery } from "@apollo/client";
+import gql_users from "../../graphql/queries/users.graphql";
 import Loading from "../Loading/Loading";
 import { WeirdText } from "./styles";
-
-const USERS_QUERY = gql`
-  query Users {
-    users {
-      id
-      username
-      email
-      firstName
-      lastName
-      createdDate
-      lastUpdated
-    }
-  }
-`  
 
 const UserDisplay = ({ user }) => {
     const { username, email, firstName, lastName, createdDate, lastUpdated } = user;
@@ -34,7 +21,7 @@ const UserDisplay = ({ user }) => {
 }
 
 export default () => {
-    const { data, loading } = useQuery(USERS_QUERY);
+    const { data, loading } = useQuery(gql_users);
 
     if (loading) {
         console.log("Executing gql query...");
