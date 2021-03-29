@@ -3,21 +3,13 @@ import "dotenv-safe/config";
 import express from "express";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
-import { createConnection } from "typeorm";
-import { __PROD__ } from "./constants";
-import { User } from "./entities/User";
 import { TestResolver } from "./resolvers/test";
 import { UserResolver } from "./resolvers/user";
+import { createOrmConnection } from "./utility/createOrmConnection";
 
 const main = async () => {
-    const postgres = await createConnection({
-        type: "postgres",
-        url: process.env.DATABASE_URL,
-        logging: true,
-        synchronize: !__PROD__,
-        entities: [User]
-    });
-
+    await createOrmConnection();
+    
     const app = express();
 
     const apolloServer = new ApolloServer({
