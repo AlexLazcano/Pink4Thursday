@@ -8,7 +8,20 @@ import { UserResolver } from "./resolvers/user";
 import { createOrmConnection } from "./utility/createOrmConnection";
 
 const main = async () => {
-    await createOrmConnection();
+    let connectionAttempts = 5;
+    while (connectionAttempts) {
+        try {
+            await createOrmConnection();
+            break;
+        } catch (err) {
+            connectionAttempts -= 1;
+            console.log(err);
+            console.log(`Failed to connect to Apollo server, reconnecting... ${ connectionAttempts } attempts left.`);
+            
+            // Timeout for 3 seconds before sending a new Promise
+            await new Promise(res => setTimeout(res, 3000));
+        }
+    }
     
     const app = express();
 
