@@ -4,7 +4,7 @@
     </p>
 </div>
 
-# Pink4Thursday 💕  Respect, Support, Love
+# Pink4Thursday
 
 **A fullstack application project for [PinkThursday](https://www.facebook.com/Pink4Thursdays/)**
 
