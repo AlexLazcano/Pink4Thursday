@@ -9,7 +9,7 @@
 1. cd into the `/server` directory
 2. Run the docker-compose
 ```
-docker-compose up
+docker-compose up -d
 ```
 3. In a browser, go to `localhost:PORT/graphql` (where PORT is your specified port number in `.env`)
 4. When finished, shut down the docker-compose
