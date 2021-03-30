@@ -4,16 +4,11 @@
     </p>
 </div>
 
-# Pink4Thursday
+# Pink4Thursday 💕  Respect, Support, Love
 
-A fullstack application project for [PinkThursday](https://www.facebook.com/Pink4Thursdays/)
+**A fullstack application project for [PinkThursday](https://www.facebook.com/Pink4Thursdays/)**
 
 ## Development Instructions
-
-### Apollo Server
-
-#### Prerequisites
-Ensure that the postgresql cli is installed. The latest release can be downloaded from [postgresql.org](https://www.postgresql.org/).
 
 #### Local Environment Config
 1. Create a `.env` and a `.env.example` file in your development environment.
@@ -21,25 +16,23 @@ Ensure that the postgresql cli is installed. The latest release can be downloade
 ```
 DATABASE_URL=   # database url goes here in the form postgresql://PSQL_USER:PSQL_PASSWORD@localhost:5432/PSQL_DATABASE
 PORT=           # port to run the express server
+NODE_ENV=       # desired runtime environment (configured to be one of "development", "production", or "test")
 ```
-3. In the `.env.example` file, add the same variables but **without** their values
+3. In the `.env.example` file, add the same variables but **without** their values (production checks these values to ensure all environment variables have a valid value)
 ```
 DATABASE_URL=
 PORT=
+NODE_ENV=
 ```
-4. If any variable names were modified - or there isn't a `env.d.ts` file present in `/src`, run the following command to build TypeScript types for your variables
+4. If any variable names are modified - or there isn't a `env.d.ts` file present in `/src`, run the following command to build TypeScript types for your variables
 ```
 npm genv
 ```
-
-#### Build/Run Apollo Server
-1. cd into the `/server` directory
-2. Run the local service to watch for TypeScript changes
+5. **Optional:** Add a union type to further enforce the NODE_ENV _(only optional if environment variables are regenerated)_
 ```
-npm run watch
+# src/env.d.ts
+interface ProcessEnv {
+    ...other env variables
+    NODE_ENV: "development" | "production" | "test";
+}
 ```
-3. Run the development server
-```
-npm run dev
-```
-4. In a browser, go to `localhost:4000/graphql` (replace 4000 with your specified port number)
