@@ -1,9 +1,8 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { FlatList } from "react-native";
-import gql_users from "../../graphql/queries/users.graphql";
+import testQuery from "../../graphql/queries/test.graphql";
 import Loading from "../Loading/Loading";
-import { WeirdText } from "./styles";
+import { RedText } from "./styles";
 
 const UserDisplay = ({ user }) => {
     const { username, email, firstName, lastName, createdDate, lastUpdated } = user;
@@ -16,23 +15,30 @@ const UserDisplay = ({ user }) => {
     }
 
     return (
-        <WeirdText>{username}</WeirdText>
+        <RedText>{username}</RedText>
     )
 }
 
 export default () => {
-    const { data, loading } = useQuery(gql_users);
+    const { data, loading, error } = useQuery(testQuery);
 
     if (loading) {
         console.log("Executing gql query...");
         return <Loading />
+    } else if (error) {
+        console.log(error);
+        return <Text>Whoops! An error occurred while fetching data.</Text>
     }
 
     return (
-        <FlatList
-        data={ data.users  }
-        renderItem={({ item }) => <UserDisplay user={item} /> }
-        keyExtractor={( user ) => user.id.toString()}
-        />
-    )
+        <RedText>{ data.Test }</RedText>
+    ) 
+    
+    // (
+    //     <FlatList
+    //     data={ data.users  }
+    //     renderItem={({ item }) => <UserDisplay user={item} /> }
+    //     keyExtractor={( user ) => user.id.toString()}
+    //     />
+    // )
 }
