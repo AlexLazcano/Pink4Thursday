@@ -35,7 +35,7 @@ const main = async () => {
     apolloServer.applyMiddleware({ app });
 
     app.listen(parseInt(process.env.PORT), () => {
-        console.log("Apollo server started on localhost:4000");
+        console.log(`Apollo server started on https://localhost:${ process.env.PORT }`);
     });
 };
 
