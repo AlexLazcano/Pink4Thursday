@@ -1,5 +1,5 @@
 FROM node:15.12.0-alpine3.10
-WORKDIR /home/server
+WORKDIR /usr/src
 
 # Install Dependencies
 COPY package*.json ./
@@ -10,4 +10,4 @@ COPY . .
 RUN npm run build
 
 EXPOSE 4000
-CMD ./start.sh
+CMD ["sh", "start.sh"]

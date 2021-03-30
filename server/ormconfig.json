@@ -9,7 +9,7 @@
         "name": "development",
         "type": "postgres",
         "host": "postgres",
-        "port": 5433,
+        "port": 5432,
         "username": "postgres",
         "password": "postgres",
         "database": "pinkthursday",

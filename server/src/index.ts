@@ -18,8 +18,8 @@ const main = async () => {
             console.log(err);
             console.log(`Failed to connect to Apollo server, reconnecting... ${ connectionAttempts } attempts left.`);
             
-            // Timeout for 3 seconds before sending a new Promise
-            await new Promise(res => setTimeout(res, 3000));
+            // Timeout for 5 seconds before sending a new Promise
+            await new Promise(res => setTimeout(res, 5000));
         }
     }
     
