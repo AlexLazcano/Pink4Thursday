@@ -4,6 +4,8 @@ import { BottomNavigation } from 'react-native-paper';
 import firebase from 'firebase'
 
 import * as Styles from './styles';
+import RecentActivity from '../RecentActivity/RecentActivity';
+import ActiveDiscussion from '../ActiveDiscussion/ActiveDiscussion';
 
 onLogout = () => {
     firebase.auth().signOut()
@@ -14,8 +16,15 @@ const CommunityRoute = () => {
     return (
         <Styles.CenteredView>
             <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
+            <RecentActivity User="Alex" Reaction="Respect"></RecentActivity>
+            <ActiveDiscussion 
+            title="Post Title"
+            time="30 minutes"
+            text="Amet minim mollit non deserunt ullamco 
+            est sit aliqua dolor do amet sint."
+            author="Alexis Lazcano"/>
             
-            <Button title="Logout" onPress={onLogout}/>
+           
         </Styles.CenteredView>
     );
 }
@@ -31,6 +40,7 @@ const SettingsRoute = () => {
     return (
         <Styles.CenteredView>
             <Styles.TempPageText>SettingsRoute</Styles.TempPageText>
+            <Button title="Logout" onPress={onLogout}/>
         </Styles.CenteredView>
     );
 }

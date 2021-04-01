@@ -3,7 +3,8 @@ import { View, Button, TextInput, Text } from "react-native";
 import firebase from 'firebase'
 
 
-import styles from "./styles";
+import styles from "../styles";
+import LoginButton from "../../LoginButton/LoginButton";
 
 class Register extends Component {
   constructor(props) {
@@ -30,26 +31,28 @@ class Register extends Component {
   }
 
   render() {
+    const {navigation } = this.props
     return (
       <View style={styles.center}>
         <Text>Register</Text>
         <TextInput
           style={styles.input}
-          placeholder="name"
+          placeholder="Name"
           onChangeText={(name) => this.setState({ name: name })}
         />
         <TextInput
           style={styles.input}
-          placeholder="email"
+          placeholder="Email"
           onChangeText={(email) => this.setState({ email: email })}
         />
         <TextInput
           style={styles.input}
-          placeholder="password"
+          placeholder="Password"
           onChangeText={(password) => this.setState({ password: password })}
           secureTextEntry={false}
         />
-        <Button title="Sign Up" onPress={() => this.onSignUp()} />
+        <LoginButton title="Sign Up" onPress={() => this.onSignUp()} buttonW= {150}/>
+        <LoginButton title="Back" onPress={() => navigation.goBack()} buttonW={125} />
       </View>
     );
   }
