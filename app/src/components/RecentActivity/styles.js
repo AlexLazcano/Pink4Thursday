@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     flex: 1,
-    height: 40,
+    height: 35,
     resizeMode: "contain",
   },
 });

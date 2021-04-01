@@ -7,7 +7,7 @@ const RecentActivity = ({User, Reaction}) => {
 
     var Respect = <Image style={styles.icon} source={require("../../../assets/Respect.png")}/>
     var Love = <Image style={styles.icon} source={require("../../../assets/icon.png")}/>
-    var Support = <Image style={styles.icon} source={require("../../../assets/icon.png")}/>
+    var Support = <Image style={styles.icon} source={require("../../../assets/Support.png")}/>
     var icon;
     if (Reaction === "Respect") {
         icon = Respect;
