@@ -26,7 +26,7 @@ NODE_ENV=
 ```
 4. If any variable names are modified - or there isn't a `env.d.ts` file present in `/src`, run the following command to build TypeScript types for your variables
 ```
-npm genv
+npm run genv
 ```
 5. **Optional:** Add a union type to further enforce the NODE_ENV _(only optional if environment variables are regenerated)_
 ```
