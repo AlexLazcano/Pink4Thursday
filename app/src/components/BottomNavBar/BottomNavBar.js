@@ -6,6 +6,7 @@ import firebase from 'firebase'
 import * as Styles from './styles';
 import RecentActivity from '../RecentActivity/RecentActivity';
 import ActiveDiscussion from '../ActiveDiscussion/ActiveDiscussion';
+import ProfileComponent from '../ProfileComponent/ProfileComponent';
 
 onLogout = () => {
     firebase.auth().signOut()
@@ -32,7 +33,8 @@ const CommunityRoute = () => {
 const ProfileRoute = () => {
     return (
         <Styles.CenteredView>
-            <Styles.TempPageText>ProfileRoute</Styles.TempPageText>
+            {/* <Styles.TempPageText>ProfileRoute</Styles.TempPageText> */}
+            <ProfileComponent isPro={true}/>
         </Styles.CenteredView>
     );
 }
