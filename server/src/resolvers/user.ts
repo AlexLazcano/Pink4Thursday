@@ -1,4 +1,4 @@
-import { Arg, Field, Mutation, ObjectType, Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { getConnection } from "typeorm";
 import { User } from "../entities/User";
 import { UserOptions } from "./helpers/UserOptions";
@@ -34,5 +34,19 @@ export class UserResolver {
             console.log(error);
         }
         return user;
+    }
+
+    @Mutation(() => User)
+    async updateFirstName(
+        @Arg("id") id: string,
+        @Arg("firstName") firstName: string
+        ): Promise<User | undefined> {        
+        await User.update(
+            { id: id },
+            { firstName: firstName }
+        );
+
+        const updatedUser = await User.findOne(id);
+        return updatedUser;
     }
 }
