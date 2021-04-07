@@ -16,6 +16,7 @@ export class UserResolver {
         @Arg("options") options: UserOptions
     ): Promise<User> {
         let user;
+        
         try {
             const result = await getConnection()
                 .createQueryBuilder()
@@ -33,20 +34,35 @@ export class UserResolver {
         } catch (error) {
             console.log(error);
         }
+        
         return user;
     }
 
-    @Mutation(() => User)
-    async updateFirstName(
+    @Mutation(() => User, { nullable: true })
+    async updateUser(
         @Arg("id") id: string,
-        @Arg("firstName") firstName: string
+        @Arg("options") options: UserOptions
         ): Promise<User | undefined> {        
-        await User.update(
-            { id: id },
-            { firstName: firstName }
-        );
+        let updatedUser;
+        
+        try {
+            const result = await getConnection()
+            .createQueryBuilder()
+            .update(User)
+            .set({ 
+                username: options.username, 
+                email: options.email, 
+                firstName: options.firstName, 
+                lastName: options.lastName 
+            })
+            .where("id = :id", { id })
+            .returning("*")
+            .execute();
+            updatedUser = result.raw[0];
+        } catch (error) {
+            console.log(error);
+        }
 
-        const updatedUser = await User.findOne(id);
         return updatedUser;
     }
 }
