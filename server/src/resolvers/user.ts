@@ -1,4 +1,5 @@
-import { Arg, Mutation, Query, Resolver } from "type-graphql";
+import { SessionContext } from "src/types/SessionContext";
+import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { getConnection } from "typeorm";
 import { User } from "../entities/User";
 import { UserOptions } from "./helpers/UserOptions";
@@ -64,5 +65,12 @@ export class UserResolver {
         }
 
         return updatedUser;
+    }
+
+    @Mutation(() => User)
+    async startSession(
+        @Ctx() { req }: SessionContext 
+    ): Promise<User> {
+
     }
 }
