@@ -4,7 +4,7 @@ services:
   # Postgres Instance
   postgres:
     container_name: postgres
-    image: postgres
+    image: postgres:alpine
     restart: always
     environment: 
       POSTGRES_USER: postgres
@@ -13,6 +13,14 @@ services:
     ports:
       - "5432:5432"
   
+  # Redis
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+
   # Apollo Server
   server:
     build: .
@@ -21,8 +29,12 @@ services:
     restart: always
     volumes:
       - .:/usr/src
+    links:
+      - postgres
+      - redis
     depends_on: 
       - postgres
+      - redis
     ports:
       - "${PORT}:${PORT}"
       - "9229:9229"

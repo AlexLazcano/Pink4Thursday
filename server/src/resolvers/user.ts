@@ -1,5 +1,4 @@
-import { SessionContext } from "src/types/SessionContext";
-import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { getConnection } from "typeorm";
 import { User } from "../entities/User";
 import { UserOptions } from "./helpers/UserOptions";

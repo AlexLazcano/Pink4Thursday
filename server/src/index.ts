@@ -7,7 +7,7 @@ import { buildSchema } from "type-graphql";
 import { TestResolver } from "./resolvers/test";
 import { UserResolver } from "./resolvers/user";
 import { createOrmConnection } from "./utility/createOrmConnection";
-import redis from "redis";
+import Redis from "ioredis";
 import connectRedis from "connect-redis";
 import { COOKIE_NAME, __PROD__ } from "./constants";
 import { SessionContext } from "./types/SessionContext";
@@ -32,15 +32,16 @@ const main = async () => {
 
     // Session Middleware
     const RedisStore = connectRedis(session)
-    const redisClient = redis.createClient();
+    const redis = new Redis(process.env.REDIS_URI);
+    const redisClient = new RedisStore({
+        client: redis,
+        disableTouch: true
+    });
 
     app.use(
         session({
             name: COOKIE_NAME,
-            store: new RedisStore({ 
-                client: redisClient,
-                disableTouch: true
-            }),
+            store: redisClient,
             cookie: {
                 maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
                 httpOnly: true,
