@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   profileContainer: {
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
     display: "flex",
     alignItems: "center",
     top: 30,

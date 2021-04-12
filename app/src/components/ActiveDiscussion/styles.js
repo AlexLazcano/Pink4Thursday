@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   ActiveDiscussion: {
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
     marginTop: 20,
     width: "85%",
     display: "flex",

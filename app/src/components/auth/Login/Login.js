@@ -23,7 +23,7 @@ class Register extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        // console.log(result)
+        console.log(result)
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +37,7 @@ class Register extends Component {
       .auth()
       .signOut()
       .then((result) => {
-        // console.log(result)
+        console.log(result)
       })
       .catch((error) => {
         console.log(error);

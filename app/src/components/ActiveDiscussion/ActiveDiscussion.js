@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
+import GlobalStyles from '../GlobalStyles'
 
 const ActiveDiscussion = ({title, time, author, text, }) => {
   return (
-    <TouchableOpacity style={styles.ActiveDiscussion}>
+    <TouchableOpacity style={[GlobalStyles.PrimaryBG, styles.ActiveDiscussion]}>
       <Image
         style={styles.profilePicture}
         source={require("../../../assets/alex.jpg")}

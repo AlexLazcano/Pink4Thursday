@@ -1,7 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import GlobalStyles from "../GlobalStyles";
 
 import styles from "./styles";
+
 
 const RecentActivity = ({User, Reaction}) => {
 
@@ -18,7 +20,7 @@ const RecentActivity = ({User, Reaction}) => {
     }
 
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={[GlobalStyles.PrimaryBG, styles.container]}>
       <Text style={styles.textContainer}>
         <Text style={styles.highlightedText}>{User}</Text> Lorem ipsum dolor sit
         amet, consectetur adipiscing elit.{" "}

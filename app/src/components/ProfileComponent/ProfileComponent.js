@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import GlobalStyles from "../GlobalStyles";
 import styles from "./styles";
 
 const ProfileComponent = ({isPro}) => {
   return (
-    <View style={styles.profileContainer}>
+    <View style={[GlobalStyles.PrimaryBG, styles.profileContainer]}>
       
         <Image
           style={styles.profilePicture}
