@@ -66,11 +66,4 @@ export class UserResolver {
 
         return updatedUser;
     }
-
-    @Mutation(() => User)
-    async startSession(
-        @Ctx() { req }: SessionContext 
-    ): Promise<User> {
-
-    }
 }

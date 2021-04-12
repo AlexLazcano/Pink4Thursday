@@ -47,6 +47,7 @@ const main = async () => {
                 sameSite: "lax",
                 secure: __PROD__ // Cookie configured in https only
             },
+            saveUninitialized: false,
             secret: process.env.REDIS_SECRET,
             resave: false
         })
