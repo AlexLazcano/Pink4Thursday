@@ -1,76 +1,82 @@
-import * as React from 'react';
-import { Button , Text } from 'react-native';
-import { BottomNavigation } from 'react-native-paper';
-import firebase from 'firebase'
+import * as React from "react";
+import { Button, Text } from "react-native";
+import { BottomNavigation } from "react-native-paper";
+import firebase from "firebase";
 
-import * as Styles from './styles';
-import RecentActivity from '../RecentActivity/RecentActivity';
-import ActiveDiscussion from '../ActiveDiscussion/ActiveDiscussion';
-import ProfileComponent from '../ProfileComponent/ProfileComponent';
+import * as Styles from "./styles";
+import RecentActivity from "../RecentActivity/RecentActivity";
+import ActiveDiscussion from "../ActiveDiscussion/ActiveDiscussion";
+import ProfileComponent from "../ProfileComponent/ProfileComponent";
+import { LinearGradient } from "expo-linear-gradient";
+import { colors } from "../GlobalStyles";
 
 onLogout = () => {
-    firebase.auth().signOut()
-}
-
+  firebase.auth().signOut();
+};
 
 const CommunityRoute = () => {
-    return (
-        <Styles.CenteredView>
-            <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
-            <RecentActivity User="Alex" Reaction="Respect"></RecentActivity>
-            <ActiveDiscussion 
-            title="Post Title"
-            time="30 minutes"
-            text="Amet minim mollit non deserunt ullamco 
+  return (
+    <LinearGradient colors={[colors.Back1, colors.Back2]} style={{ flex: 1 }}>
+      <Styles.CenteredView>
+        <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
+        <RecentActivity User="Alex" Reaction="Respect"></RecentActivity>
+        <ActiveDiscussion
+          title="Post Title"
+          time="30 minutes"
+          text="Amet minim mollit non deserunt ullamco 
             est sit aliqua dolor do amet sint."
-            author="Alexis Lazcano"/>
-            
-           
-        </Styles.CenteredView>
-    );
-}
+          author="Alexis Lazcano"
+        />
+      </Styles.CenteredView>
+    </LinearGradient>
+  );
+};
 
 const ProfileRoute = () => {
-    return (
-        <Styles.CenteredView>
-            {/* <Styles.TempPageText>ProfileRoute</Styles.TempPageText> */}
-            <ProfileComponent isPro={true}/>
-        </Styles.CenteredView>
-    );
-}
+  return (
+    <LinearGradient colors={[colors.Back1, colors.Back2]} style={{ flex: 1 }}>
+      <Styles.CenteredView>
+        {/* <Styles.TempPageText>ProfileRoute</Styles.TempPageText> */}
+        <ProfileComponent isPro={true} />
+      </Styles.CenteredView>
+    </LinearGradient>
+  );
+};
 const SettingsRoute = () => {
-    return (
-        <Styles.CenteredView>
-            <Styles.TempPageText>SettingsRoute</Styles.TempPageText>
-            <Button title="Logout" onPress={onLogout}/>
-        </Styles.CenteredView>
-    );
-}
+  return (
+    <LinearGradient colors={[colors.Back1, colors.Back2]} style={{ flex: 1 }}>
+      <Styles.CenteredView>
+        <Styles.TempPageText>SettingsRoute</Styles.TempPageText>
+        <Button title="Logout" onPress={onLogout} />
+      </Styles.CenteredView>
+    </LinearGradient>
+  );
+};
 
 const BottomNavBar = () => {
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        { key: 'community', title: 'Community', color: '#E43090' },
-        { key: 'profile', title: 'Profile' },
-        { key: 'settings', title: 'Settings' },
-    ]);
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: "community", title: "Community", color: "#E43090" },
+    { key: "profile", title: "Profile" },
+    { key: "settings", title: "Settings" },
+  ]);
 
-    const renderScene = BottomNavigation.SceneMap({
-        community: CommunityRoute,
-        profile: ProfileRoute,
-        settings: SettingsRoute,
-    });
+  const renderScene = BottomNavigation.SceneMap({
+    community: CommunityRoute,
+    profile: ProfileRoute,
+    settings: SettingsRoute,
+  });
 
-    return (
-        <BottomNavigation
-            navigationState={{ index, routes }}
-            onIndexChange={ setIndex }
-            renderScene={ renderScene }
-            activeColor={ Styles.ActiveIconColor }
-            inactiveColor={ Styles.InactiveIconColor }
-            barStyle={{ backgroundColor:  Styles.BackgroundColor }}
-        />
-    )
-}
+  return (
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+      activeColor={Styles.ActiveIconColor}
+      inactiveColor={Styles.InactiveIconColor}
+      barStyle={{ backgroundColor: Styles.BackgroundColor }}
+    />
+  );
+};
 
 export default BottomNavBar;

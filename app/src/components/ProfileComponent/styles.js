@@ -10,8 +10,9 @@ const styles = StyleSheet.create({
     marginTop: 120,
     borderRadius: 20,
     
+    
   },
-  
+ 
 
   profilePicture: {
     resizeMode: "contain",
@@ -19,6 +20,8 @@ const styles = StyleSheet.create({
     width: 200,
     borderRadius: 200 / 2,
     marginTop: -100,
+    
+    
   },
 
   isPro: {

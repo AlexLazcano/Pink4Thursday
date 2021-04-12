@@ -4,7 +4,9 @@ import firebase from "firebase";
 import { useNavigation } from "@react-navigation/core";
 
 import styles from "../styles";
-import LoginButton from "../../LoginButton/LoginButton";
+import LoginButton from '../LoginButton/LoginButton'
+import {LinearGradient} from 'expo-linear-gradient'
+import { colors } from "../../GlobalStyles";
 
 class Register extends Component {
   constructor(props) {
@@ -47,24 +49,28 @@ class Register extends Component {
   render() {
     const { navigation } = this.props;
     return (
+      <LinearGradient colors={[colors.Back1, colors.Back2]} style={
+        {flex:1}
+      }>
+
       <View style={styles.center}>
         <View style={styles.inputView}>
           <Image
             style={styles.logo}
             source={require("../../../../assets/LogoPT.png")}
-          ></Image>
+            ></Image>
           <Text>Login</Text>
           <TextInput
             style={styles.input}
             placeholder="Email"
             onChangeText={(email) => this.setState({ email: email })}
-          />
+            />
           <TextInput
             style={styles.input}
             placeholder="Password"
             onChangeText={(password) => this.setState({ password: password })}
             secureTextEntry={false}
-          />
+            />
           <LoginButton title="Sign In" onPress={() => this.onLogin()} buttonW={200}/>
           <LoginButton title="Back" onPress={() => navigation.goBack()} buttonW={125} />
         </View>
@@ -74,6 +80,7 @@ class Register extends Component {
           <LoginButton title="Register" onPress={() => navigation.navigate('Register')} buttonW= {125} />
         </View>
       </View>
+            </LinearGradient>
     );
   }
 }
