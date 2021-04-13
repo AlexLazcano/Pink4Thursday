@@ -7,9 +7,7 @@ import { UserOptions } from "./helpers/UserOptions";
 @Resolver(User)
 export class UserResolver {
 
-    /*************
-     ** Queries **
-     *************/
+    /* Queries */
 
     @Query(() => [User], { nullable: true })
     users() {
@@ -28,9 +26,7 @@ export class UserResolver {
         return user;
     }
 
-    /***************
-     ** Mutations **
-     ***************/
+    /* Mutations */
 
     @Mutation(() => User)
     async startSession(

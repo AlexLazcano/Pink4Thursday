@@ -3,8 +3,7 @@ import { Session, SessionData } from "express-session";
 import { Redis } from "ioredis";
 
 /**
- * Type to hold the SessionContext for users
- * TODO: Add redis to keep track of current user session
+ * Holds current session context, including Redis instance and session id
  */
 export type SessionContext = {
     req: Request & { session: Session & Partial<SessionData> };
