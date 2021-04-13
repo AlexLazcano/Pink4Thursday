@@ -31,17 +31,15 @@ const main = async () => {
     const app = express();
 
     // Session Middleware
-    const RedisStore = connectRedis(session)
+    const RedisStore = connectRedis(session);
     const redis = new Redis(process.env.REDIS_URI);
-    const redisClient = new RedisStore({
-        client: redis,
-        disableTouch: true
-    });
-
     app.use(
         session({
             name: COOKIE_NAME,
-            store: redisClient,
+            store: new RedisStore({
+                client: redis,
+                disableTouch: true
+            }),
             cookie: {
                 maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
                 httpOnly: true,
@@ -52,7 +50,7 @@ const main = async () => {
             secret: process.env.REDIS_SECRET,
             resave: false
         })
-    )
+    );
 
     // Apollo
     const apolloServer = new ApolloServer({
@@ -60,7 +58,7 @@ const main = async () => {
             resolvers: [TestResolver, UserResolver],
             validate: false
         }),
-        context: ({ req, res }): SessionContext => ({ req, res }),
+        context: ({ req, res }): SessionContext => ({ req, res, redis }),
     });
 
     apolloServer.applyMiddleware({ app });
