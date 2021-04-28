@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   ActiveDiscussion: {
     // backgroundColor: "pink",
-    marginTop: 20,
+    
+    marginBottom: 20,
     width: "85%",
     display: "flex",
     flexDirection: "row",
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingLeft: 15,
     borderRadius: 15,
+    alignSelf:"center",
 
     shadowRadius: 4,
     shadowOpacity: 0.1,

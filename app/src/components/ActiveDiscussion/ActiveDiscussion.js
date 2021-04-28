@@ -4,9 +4,9 @@ import styles from "./styles";
 import GlobalStyles, {colors} from "../GlobalStyles";
 import { LinearGradient } from "expo-linear-gradient";
 
-const ActiveDiscussion = ({ title, time, author, text }) => {
+const ActiveDiscussion = ({ title, time, author, text, pressFunction}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => pressFunction()}>
       <LinearGradient colors={[colors.color1, colors.color2]} style={styles.ActiveDiscussion}>
         
         <Image

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Text } from "react-native";
+import { Alert, Button, FlatList, SafeAreaView, Text, View } from "react-native";
 import { BottomNavigation } from "react-native-paper";
 import firebase from "firebase";
 
@@ -14,20 +14,111 @@ onLogout = () => {
   firebase.auth().signOut();
 };
 
+const Posts = [
+  {
+    id: 1,
+    title: "Post 1",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alexis lazcano",
+  },
+  {
+    id: 2,
+    title: "Post 2",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alex lazcano",
+  },
+  {
+    id: 3,
+    title: "Post 3",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alexis lazcano",
+  },
+  {
+    id: 4,
+    title: "Post 4",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alex lazcano",
+  },
+  {
+    id: 5,
+    title: "Post 5",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alexis lazcano",
+  },
+  {
+    id: 6,
+    title: "Post 6",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alex lazcano",
+  },
+  {
+    id: 7,
+    title: "Post 7",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alexis lazcano",
+  },
+  {
+    id: 8,
+    title: "Post 8",
+    time: "30 mins ago",
+    text:
+      "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+    author: "Alex lazcano",
+  },
+];
+
+const handlePress = (num) => {
+  Alert.alert(
+    `Pressed Id ${num}`,
+      "My Alert Msg",
+      [
+        
+        { text: "OK",  }
+      ]
+    );
+}
+
+const renderPosts = ({ item }) => (
+  <ActiveDiscussion
+    title={item.title}
+    time={item.time}
+    text={item.text}
+    author={item.author}
+    pressFunction={() => handlePress(item.id)}
+  ></ActiveDiscussion>
+);
+
+
 const CommunityRoute = () => {
   return (
     <LinearGradient colors={[colors.Back1, colors.Back2]} style={{ flex: 1 }}>
-      <Styles.CenteredView>
+      <SafeAreaView style={Styles.styles.PostView}>
         <Styles.TempPageText>CommunityRoute</Styles.TempPageText>
         <RecentActivity User="Alex" Reaction="Respect"></RecentActivity>
-        <ActiveDiscussion
-          title="Post Title"
-          time="30 minutes"
-          text="Amet minim mollit non deserunt ullamco 
-            est sit aliqua dolor do amet sint."
-          author="Alexis Lazcano"
-        />
-      </Styles.CenteredView>
+
+        <FlatList
+          style={Styles.styles.FlatListStyle}
+          bounces={true}
+          data={Posts}
+          renderItem={renderPosts}
+          keyExtractor={(item) => item.id}
+        
+        ></FlatList>
+      </SafeAreaView>
     </LinearGradient>
   );
 };
