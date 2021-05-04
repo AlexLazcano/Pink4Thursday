@@ -1,11 +1,16 @@
 import { ApolloServer } from "apollo-server-express";
 import "dotenv-safe/config";
 import express from "express";
+import session from "express-session";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { TestResolver } from "./resolvers/test";
 import { UserResolver } from "./resolvers/user";
 import { createOrmConnection } from "./utility/createOrmConnection";
+import Redis from "ioredis";
+import connectRedis from "connect-redis";
+import { COOKIE_NAME, __PROD__ } from "./constants";
+import { SessionContext } from "./types/SessionContext";
 
 const main = async () => {
     let connectionAttempts = 5;
@@ -25,11 +30,35 @@ const main = async () => {
     
     const app = express();
 
+    // Session Middleware
+    const RedisStore = connectRedis(session);
+    const redis = new Redis(process.env.REDIS_URI);
+    app.use(
+        session({
+            name: COOKIE_NAME,
+            store: new RedisStore({
+                client: redis,
+                disableTouch: true
+            }),
+            cookie: {
+                maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
+                httpOnly: true,
+                sameSite: "lax",
+                secure: __PROD__ // Cookie configured in https only
+            },
+            saveUninitialized: false,
+            secret: process.env.REDIS_SECRET,
+            resave: false
+        })
+    );
+
+    // Apollo
     const apolloServer = new ApolloServer({
         schema: await buildSchema({
             resolvers: [TestResolver, UserResolver],
             validate: false
         }),
+        context: ({ req, res }): SessionContext => ({ req, res, redis }),
     });
 
     apolloServer.applyMiddleware({ app });

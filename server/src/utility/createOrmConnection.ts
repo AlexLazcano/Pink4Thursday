@@ -7,7 +7,7 @@ export const createOrmConnection = async () => {
     return __PROD__ 
         ? createConnection({
             ...ormConfig,
-            url: process.env.DATABASE_URL,
+            url: process.env.DATABASE_URI,
             entities: [User],
             name: "default"
         } as any)
