@@ -1,36 +1,40 @@
-import { StyleSheet } from "react-native";
+import { Image, Text, View } from 'react-native'
+import styled from 'styled-components'
+import { LinearGradient } from 'expo-linear-gradient'
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "pink",
-    width: "85%",
-    padding: 10,
-    borderRadius: 15,
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "row",
-    shadowColor: "black",
-    justifyContent: "space-between",
+export const RecentActivity = styled(LinearGradient)`
+  background-color: pink;
+  
+  
+  border-radius: 15px;
+  height: 50px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-between;
+  
+ 
+`
+//TODO: fix the width styles to match active discussion
+export const TextContainer = styled(Text)`
+  
+  width: 75%; 
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: center;
+  padding: 10px 0 0 10px;
+  margin-bottom: 5px;
 
-    shadowRadius: 4,
-    shadowOpacity: 0.1,
-    shadowOffset: {
-      height: 8,
-    },
-  },
-  highlightedText: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  textContainer: {
-    fontSize: 15,
-    flex: 5,
-  },
-  icon: {
-    flex: 1,
-    height: 35,
-    resizeMode: "contain",
-  },
-});
-export default styles;
+`
+
+export const Icon = styled(Image)`
+  margin-left: 10px;
+  margin-right: 20px;
+  
+ 
+`
+
+export const Name = styled(Text)`
+  color: white;
+`
