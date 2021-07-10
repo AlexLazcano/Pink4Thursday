@@ -1,71 +1,42 @@
-import { StyleSheet } from "react-native";
-const styles = StyleSheet.create({
-  profileContainer: {
-    // backgroundColor: "pink",
-    display: "flex",
-    alignItems: "center",
-    top: 30,
-    width: "90%",
-    height: "70%",
-    marginTop: 120,
-    borderRadius: 20,
-    
-    
-  },
- 
 
-  profilePicture: {
-    resizeMode: "contain",
-    height: 200,
-    width: 200,
-    borderRadius: 200 / 2,
-    marginTop: -100,
-    
-    
-  },
+import styled from 'styled-components'
+import { View, Text, Image } from 'react-native'
 
-  isPro: {
-   
-    backgroundColor: "#F6D365",
-    textAlign: "center",
-    color: "black",
-    width: 60,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 3.0,
-    marginTop: 10,
-  },
-  name: {
-    marginTop: 20,
-    width: "100%",
-    // backgroundColor: 'red',
-    textAlign:'center',
-    fontSize: 50,
-    color: 'white',
-    fontWeight: 'bold',
-    shadowOffset: {
-        width: 0,
-        height: 4,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 3.0,
-     
-
-    
-  },
-  email: {
-      fontWeight:'bold',
-      fontSize: 20,
-  },
-
-  bio: {
-    marginTop: 20,
-    width: "85%",
-    textAlign: "center",
-  },
-});
-
-export default styles;
+export const ProfileContainer = styled(View)`
+  display: flex;
+  align-items: center;
+  top: 30px;
+  width: 90%;
+  height: 70%;
+  margin-top: 120px;
+  border-radius: 20px;
+`
+export const ProfilePicture = styled(Image)`
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  margin-top: -100px;
+`
+export const ProTag = styled(Text)`
+  background-color: #f6d365;
+  text-align: center;
+  color: black;
+  width: 60px;
+`
+export const Name = styled(Text)`
+  margin-top: 20px;
+  width: 100%;
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+`
+export const Email = styled(Text)`
+  font-weight: bold;
+  font-size: 20px;
+`
+export const Bio = styled(Text)`
+  margin-top: 20px;
+  width: 85%;
+  text-align: center;
+`
